@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>3D Models Menu</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      font-family: "DM Sans", sans-serif;
+      background: #f8f8f8;
+    }
+    .menu {
+      width: 220px;
+      background: #67130c;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .menu h2 {
+      margin: 0 0 16px 0;
+      font-size: 18px;
+    }
+    .menu button {
+      background: #fff;
+      color: #67130c;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .menu button:hover {
+      background: #e0e0e0;
+    }
+    model-viewer {
+      flex: 1;
+      height: 100%;
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <!-- MENU -->
+  <div class="menu">
+    <h2>Model Menu</h2>
+    <button onclick="window.location.href='heart.html'">Heart</button>
+    <button onclick="loadModel('model2')">Model 2</button>
+    <button onclick="loadModel('model3')">Model 3</button>
+    <button onclick="loadModel('model4')">Model 4</button>
+    <button onclick="loadModel('model5')">Model 5</button>
+    <button onclick="loadModel('model6')">Model 6</button>
+    <button onclick="loadModel('model7')">Model 7</button>
+    <button onclick="loadModel('model8')">Model 8</button>
+    <button onclick="loadModel('model9')">Model 9</button>
+    <button onclick="loadModel('model10')">Model 10</button>
+  </div>
+
+  <!-- MODEL VIEWER (for all except heart) -->
+  <model-viewer
+    id="viewer"
+    src="models/model2.glb"
+    ios-src="models/model2.usdz"
+    alt="3D Model"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    camera-controls
+    shadow-intensity="1"
+    auto-rotate
+    autoplay>
+  </model-viewer>
+
+  <script>
+    const viewer = document.getElementById("viewer");
+
+    const models = {
+      model2: { glb: "models/model2.glb", usdz: "models/model2.usdz" },
+      model3: { glb: "models/model3.glb", usdz: "models/model3.usdz" },
+      model4: { glb: "models/model4.glb", usdz: "models/model4.usdz" },
+      model5: { glb: "models/model5.glb", usdz: "models/model5.usdz" },
+      model6: { glb: "models/model6.glb", usdz: "models/model6.usdz" },
+      model7: { glb: "models/model7.glb", usdz: "models/model7.usdz" },
+      model8: { glb: "models/model8.glb", usdz: "models/model8.usdz" },
+      model9: { glb: "models/model9.glb", usdz: "models/model9.usdz" },
+      model10: { glb: "models/model10.glb", usdz: "models/model10.usdz" }
+    };
+
+    function loadModel(name) {
+      viewer.src = models[name].glb;
+      viewer.setAttribute("ios-src", models[name].usdz);
+    }
+  </script>
+</body>
+</html>

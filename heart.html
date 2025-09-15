@@ -66,24 +66,35 @@
       cursor: pointer;
     }
 
-    /* Hotspots */
-    .hotspot {
-      background: rgba(103, 19, 12, 0.4); /* Transparent burgundy */
-      border-radius: 50%;
-      width: 28px;
-      height: 28px;
-      border: 2px solid #fff;
-      cursor: pointer;
-      position: relative;
-      box-shadow: 0 0 8px rgba(103, 19, 12, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.2s ease;
-    }
-    .hotspot:hover {
-      transform: scale(1.2);
-    }
+   /* Hotspots */
+.hotspot {
+  background: rgba(103, 19, 12, 0.4); /* Transparent burgundy outer circle */
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  border: 2px solid #fff;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 0 8px rgba(103, 19, 12, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+.hotspot:hover {
+  transform: scale(1.2);
+}
+
+/* Inner white dot */
+.hotspot::after {
+  content: "";
+  position: absolute;
+  width: 12px;   /* smaller than parent */
+  height: 12px;
+  background: #fff; /* inner dot color */
+  border-radius: 50%;
+}
+
 
     /* Labels */
     .label {

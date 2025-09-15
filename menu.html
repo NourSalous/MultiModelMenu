@@ -26,21 +26,22 @@
     header {
       width: 100%;
       display: flex;
-      justify-content: space-between;
+      justify-content: center; /* center logo */
       align-items: center;
       margin-bottom: 2rem;
-      flex-wrap: wrap;
-      gap: 12px;
+      position: relative; /* for back link positioning */
       animation: fadeDown 1s ease forwards;
     }
 
     header img {
-      height: 70px;
+      height: 90px; /* slightly bigger */
       width: auto;
       object-fit: contain;
     }
 
     .back-link {
+      position: absolute; /* position over the header */
+      left: 0;
       text-decoration: none;
       color: var(--turquoise);
       font-weight: 600;
@@ -75,7 +76,7 @@
       animation: fadeUp 1.2s ease forwards;
     }
 
-    /* Pill-style buttons */
+    /* Pill-style buttons with neon hover glow */
     .menu-btn {
       background: var(--turquoise);
       color: #fff;
@@ -89,10 +90,16 @@
       text-align: center;
       box-shadow: 0 4px 10px rgba(27, 121, 144, 0.15);
     }
+
     .menu-btn:hover {
       background: #145b6e;
       transform: translateY(-3px);
-      box-shadow: 0 8px 18px rgba(27, 121, 144, 0.3);
+      /* Neon glow effect */
+      box-shadow:
+        0 0 8px rgba(27, 121, 144, 0.8),
+        0 0 16px rgba(27, 121, 144, 0.6),
+        0 0 24px rgba(27, 121, 144, 0.4),
+        0 4px 10px rgba(27, 121, 144, 0.3);
     }
 
     /* Responsive grid */
@@ -102,8 +109,8 @@
 
     /* Mobile tweaks */
     @media (max-width: 520px) {
-      header img { height: 60px; }
-      .back-link { width: 100%; text-align: right; }
+      header img { height: 70px; }
+      .back-link { font-size: 0.9rem; left: 10px; top: 50%; transform: translateY(-50%); }
       .page-title { font-size: 1.5rem; }
     }
 
@@ -121,8 +128,8 @@
 <body>
   <!-- Header -->
   <header>
-    <img src="DarkLogo.png" alt="METATIP Logo">
     <a href="index.html" class="back-link">Back to Welcome</a>
+    <img src="DarkLogo.png" alt="METATIP Logo">
   </header>
 
   <!-- Title -->
@@ -137,7 +144,7 @@
     <button class="menu-btn">Brain</button>
     <button class="menu-btn">Lungs</button>
     <button class="menu-btn">Kidneys</button>
-    <!-- Add more organs -->
+    
   </div>
 </body>
 </html>

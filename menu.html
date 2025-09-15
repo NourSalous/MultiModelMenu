@@ -3,14 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Organs | METATIP</title>
+  <title>OrgansMenu | METATIP</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
       --turquoise: #1b7990;
       --black: #111;
       --white: #fff;
-      --muted: #f5f6f7;
       --radius: 14px;
     }
 
@@ -24,31 +23,32 @@
       flex-direction:column;
       align-items:center;
       padding:36px 20px;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
     }
 
-    /* Header */
+    /* Header/logo */
     header{
       width:100%;
       display:flex;
       justify-content:center;
       align-items:center;
-      margin-bottom:36px;
-      position: relative;
+      margin-bottom:28px;
     }
     header img{
-      height:100px; /* bigger logo */
+      height:110px; /* slightly bigger logo */
       width:auto;
       object-fit:contain;
     }
+
+    /* Back button */
     .back-link{
-      position:absolute;
-      left:0;
+      display:block;
+      margin-bottom:16px;
       text-decoration:none;
       color:var(--turquoise);
       font-weight:600;
+      font-size:1rem;
       transition: color 0.3s ease;
+      text-align:center;
     }
     .back-link:hover{ color:#16707a; }
 
@@ -69,10 +69,9 @@
       gap:12px;
     }
     .page-title{
-      font-size:1.65rem;
+      font-size:1.7rem;
       font-weight:700;
       letter-spacing:0.1px;
-      color:var(--black);
     }
     .subtitle{
       color:#666;
@@ -115,7 +114,6 @@
       align-items:center;
       justify-content:center;
       font-size:1.5rem;
-      color:var(--white);
       background: linear-gradient(180deg, var(--turquoise), #16707a);
       box-shadow:0 6px 20px rgba(27,121,144,0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -141,23 +139,18 @@
     }
 
     @media (max-width:520px){
-      header img{height:80px}
-      .container{gap:20px}
+      header img{height:90px}
+      .back-link{margin-bottom:20px; font-size:0.95rem}
       .icon{min-width:56px;min-height:56px;font-size:1.3rem}
-      .back-link{
-        font-size:0.9rem;
-        left:10px;
-        top:50%;
-        transform:translateY(-50%);
-      }
     }
   </style>
 </head>
 <body>
   <header>
-    <a href="index.html" class="back-link">Back to Welcome</a>
     <img src="DarkLogo.png" alt="METATIP logo">
   </header>
+
+  <a href="index.html" class="back-link">← Back to Welcome</a>
 
   <div class="container">
     <div class="title-row">
@@ -169,12 +162,13 @@
 
     <div class="grid" role="list">
       <!-- Heart -->
-      <a class="card" href="heart.html" role="listitem" aria-label="Open Heart model">
+      <a class="card" href="heart.html">
         <div class="icon">
+          <!-- Heart SVG -->
           <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 
-            7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 
-            5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 
+            4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 
+            3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
           </svg>
         </div>
         <div class="card-content">
@@ -184,12 +178,12 @@
       </a>
 
       <!-- Brain -->
-      <div class="card" role="listitem" onclick="alert('Coming soon')">
+      <div class="card" onclick="alert('Coming soon')">
         <div class="icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
             <path d="M12 2C8.13 2 5 5.13 5 9c0 2.33 1.33 4.33 3.25 5.33v3.84C8.83 
-            19.11 10.35 20 12 20s3.17-.89 3.75-1.83V14.33C17.67 13.33 19 11.33 19 
-            9c0-3.87-3.13-7-7-7z"/>
+            19.11 10.35 20 12 20s3.17-.89 3.75-1.83V14.33C17.67 13.33 19 
+            11.33 19 9c0-3.87-3.13-7-7-7z"/>
           </svg>
         </div>
         <div class="card-content">
@@ -199,7 +193,7 @@
       </div>
 
       <!-- Lungs -->
-      <div class="card" role="listitem" onclick="alert('Coming soon')">
+      <div class="card" onclick="alert('Coming soon')">
         <div class="icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
             <path d="M6 2c-1.1 0-2 .9-2 2v12c0 2.21 1.79 4 4 4h.5V8H6V4h6v16h6V4h-4v10.5h.5c2.21 
@@ -213,10 +207,10 @@
       </div>
 
       <!-- Kidneys -->
-      <div class="card" role="listitem" onclick="alert('Coming soon')">
+      <div class="card" onclick="alert('Coming soon')">
         <div class="icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-            <path d="M12 2C8 2 5 5 5 9c0 3.87 3.13 7 7 7s7-3.13 7-7c0-4-3-7-7-7z"/>
+            <path d="M12 2C8 2 5 5 5 9c0 4 7 12 7 12s7-8 7-12c0-4-3-7-7-7z"/>
           </svg>
         </div>
         <div class="card-content">
@@ -226,7 +220,31 @@
       </div>
 
       <!-- Liver -->
-      <div class="card" role="listitem" onclick="alert('Coming soon')">
+      <div class="card" onclick="alert('Coming soon')">
         <div class="icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-            <path d="M12 2C8 2 4 4 4 8c0 3.87 8 12 8 12
+            <path d="M2 6c0 5 10 16 10 16s10-11 10-16c0-5-4-6-10-6s-10 1-10 6z"/>
+          </svg>
+        </div>
+        <div class="card-content">
+          <div class="card-title">Liver</div>
+          <div class="card-sub">Hepatic structures</div>
+        </div>
+      </div>
+
+      <!-- Skeleton -->
+      <div class="card" onclick="alert('Coming soon')">
+        <div class="icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+            <path d="M12 2c-2 0-4 2-4 4v12c0 2 2 4 4 4s4-2 4-4V6c0-2-2-4-4-4z"/>
+          </svg>
+        </div>
+        <div class="card-content">
+          <div class="card-title">Skeleton</div>
+          <div class="card-sub">Full bone structure</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>3D Heart Model Clean Labels</title>
+  <title>3D Heart Model | METATIP</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer.min.js"></script>
   <style>
     * { box-sizing: border-box; }
@@ -14,6 +14,27 @@
       height: 100vh;
       font-family: "DM Sans", sans-serif;
     }
+
+    /* Back to Menu button */
+    .back-btn {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      padding: 10px 16px;
+      background: #1b7990;
+      color: #fff;
+      border-radius: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      z-index: 9999;
+    }
+    .back-btn:hover {
+      background: #16707a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(27, 121, 144, 0.4);
+    }
+
     model-viewer {
       width: 100vw;
       height: 100vh;
@@ -21,6 +42,7 @@
       cursor: grab;
       --poster-color: transparent;
     }
+
     model-viewer::part(default-ar-button) {
       position: absolute;
       bottom: 70px; 
@@ -38,30 +60,34 @@
       z-index: 9999;
       cursor: pointer;
     }
+
+    /* Hotspots */
     .hotspot {
-      background: #67130c;
+      background: var(--turquoise, #1b7990);
       border-radius: 50%;
-      width: 33px;
-      height: 33px;
+      width: 28px;
+      height: 28px;
       border: 2px solid #fff;
       cursor: pointer;
       position: relative;
-      box-shadow: 0 0 6px rgba(103, 19, 12, 0.4);
+      box-shadow: 0 0 8px rgba(27,121,144,0.6);
       display: flex;
       align-items: center;
       justify-content: center;
     }
+
+    /* Labels */
     .label {
       display: none;
       position: absolute;
       top: 50%;
-      left: 40px;
+      left: 36px;
       transform: translateY(-50%);
       padding: 8px 14px;
       border-radius: 6px;
       background: #fff;
       border: 1px solid #e0e0e0;
-      color: #67130c;
+      color: #111; /* black text */
       font-size: 15px;
       font-weight: 600;
       white-space: nowrap;
@@ -77,15 +103,21 @@
       transform: translateY(-50%);
       width: 20px;
       height: 1.5px;
-      background: #67130c;
+      background: var(--turquoise, #1b7990);
     }
+
     .hotspot.active .label {
       display: block;
       opacity: 1;
     }
+
   </style>
 </head>
 <body>
+
+  <!-- Back to Menu -->
+  <a href="organ-menu.html" class="back-btn">← Back to Menu</a>
+
   <model-viewer
       id="heartViewer"
       src="models/realistic_human_heart.glb"
@@ -101,7 +133,7 @@
       shadow-intensity="1"
       interaction-prompt="auto"
       quick-look-browsers="safari chrome">
-    
+
     <!-- Hotspots -->
     <button id="hotspot-svc" class="hotspot" slot="hotspot-svc"
       data-position="-0.340815m 0.711882m 0.172959m"
@@ -146,5 +178,6 @@
       focusOnPart("hotspot-aorta", "-10deg 40deg 1.5m", "0.01m 0.60m 0.03m");
     });
   </script>
+
 </body>
 </html>

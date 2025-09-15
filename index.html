@@ -4,54 +4,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome | METATIP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: "DM Sans", sans-serif;
-      background: #fff; /* clean white */
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       overflow: hidden;
+      text-align: center;
     }
 
-    /* Logo in the center */
+    /* Centered container */
     .container {
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       animation: fadeIn 1s ease;
     }
+
+    /* Logo */
     .container img {
-      max-width: 280px;
-      width: 70%;
+      max-width: 420px;
+      width: 80%;
       height: auto;
+      margin-bottom: 2.5rem;
     }
 
-    /* Continue button (hidden first) */
+    /* Continue button */
     .continue-btn {
-      margin-top: 2rem;
-      background: #00c8d9; /* turquoise */
+      background: #1b7990;
       border: none;
       color: #fff;
-      padding: 0.9rem 2rem;
+      padding: 1rem 2.5rem;
       border-radius: 50px;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       font-weight: 600;
       cursor: pointer;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.6s ease, transform 0.3s ease;
+      transition: opacity 0.6s ease, transform 0.3s ease, box-shadow 0.3s ease;
     }
     .continue-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0, 200, 217, 0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(27, 121, 144, 0.35);
     }
     .continue-btn.visible {
       opacity: 1;
       pointer-events: auto;
     }
 
-    /* Fade animation */
+    /* Animation */
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -60,8 +67,10 @@
 </head>
 <body>
   <div class="container">
-    <!-- Your dark logo -->
-    <img src="DarkLogo.png" alt="METATIP Logo">
+    <!-- Logo -->
+    <img src="assets/METATIP-DARK.png" alt="METATIP Logo">
+
+    <!-- Button -->
     <button class="continue-btn" id="continueBtn">Continue to Organs</button>
   </div>
 

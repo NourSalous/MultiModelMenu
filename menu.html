@@ -24,19 +24,28 @@
       padding: 36px 20px;
     }
 
-    /* Header logo */
-    header{
-      width:100%;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      margin-bottom: 28px;
-    }
-    header img{
-      height: 70px;
-      width: auto;
-      object-fit: contain;
-    }
+   /* Header logo */
+header{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-bottom: 28px;
+}
+header img{
+  height: 90px; /* increased from 70px */
+  width: auto;
+  object-fit: contain;
+}
+
+@media(max-width: 520px) {
+  header img { 
+    height: 70px; /* slightly larger on mobile */
+  }
+  .icon { width: 56px; height: 56px; }
+  .grid { gap: 18px; }
+}
+
 
     /* Back to Welcome button */
     .back-btn {

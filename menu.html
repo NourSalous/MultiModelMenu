@@ -3,124 +3,186 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Organs Menu | METATIP </title>
+  <title>OrgansMenu | METATIP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root{
+      --turquoise: #1b7990;
+      --black: #111;
+      --white: #fff;
+      --radius: 14px;
     }
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f4f4f4;
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body{
+      font-family:'Poppins', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      background: var(--white);
+      color: var(--black);
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 36px 20px;
     }
-    .menu {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
+
+    /* Header logo */
+    header{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin-bottom: 28px;
     }
-    .card {
-      width: 150px;
+    header img{
+      height: 80px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* Back to Welcome button */
+    .back-btn {
+      margin-top: 12px;
+      text-decoration: none;
+      color: var(--turquoise);
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+    .back-btn:hover { color: #16707a; }
+
+    /* Page title */
+    .page-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 8px;
       text-align: center;
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 20px;
+    }
+    .subtitle {
+      font-size: 1rem;
+      color: #666;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    /* Grid of cards */
+    .grid {
+      width: 100%;
+      max-width: 800px;
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 18px;
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid #ececec;
+      box-shadow: 0 6px 20px rgba(17,17,17,0.04);
       cursor: pointer;
-      transition: transform 0.3s;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      text-decoration: none;
+      color: var(--black);
     }
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(27,121,144,0.11);
+      border-color: #e6f4f6;
     }
+
     .icon {
-      background-color: #40E0D0; /* Turquoise */
-      border-radius: 50%;
-      padding: 20px;
-      margin-bottom: 10px;
-      display: inline-block;
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: linear-gradient(180deg, var(--turquoise), #16707a);
+      box-shadow: 0 8px 24px rgba(27,121,144,0.12);
     }
     .icon img {
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
     }
-    .card-title {
-      font-size: 16px;
-      font-weight: bold;
-      color: #333;
-    }
-    .card-sub {
-      font-size: 14px;
-      color: #777;
-    }
-    @media (max-width: 768px) {
-      .menu {
-        flex-direction: column;
-        align-items: center;
-      }
-      .card {
-        width: 80%;
-        max-width: 300px;
-      }
+
+    .card-title { font-weight: 700; font-size: 1.05rem; }
+    .card-sub { font-size: 0.92rem; color:#666; font-weight:500; text-align: center; }
+
+    @media(max-width: 520px) {
+      header img { height: 70px; }
+      .icon { width: 56px; height: 56px; }
+      .icon img { width: 32px; height: 32px; }
+      .grid { gap: 18px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="menu">
+  <header>
+    <img src="DarkLogo.png" alt="METATIP Logo">
+  </header>
+  <a href="index.html" class="back-btn">← Back to Welcome</a>
+
+  <div class="page-title">Organs</div>
+  <div class="subtitle">Select an organ to explore in 3D</div>
+
+  <div class="grid">
+    <!-- Heart -->
     <a class="card" href="heart.html">
       <div class="icon">
-        <img src="https://www.svgrepo.com/show/105024/human-brain.svg" alt="Heart Icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/3445/3445640.png" alt="Heart">
       </div>
       <div class="card-title">Heart</div>
       <div class="card-sub">Realistic 3D Heart</div>
     </a>
 
-    <a class="card" href="brain.html">
+    <!-- Brain -->
+    <a class="card" href="#" onclick="alert('Coming soon')">
       <div class="icon">
-        <img src="https://www.svgrepo.com/show/105024/human-brain.svg" alt="Brain Icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/3445/3445683.png" alt="Brain">
       </div>
       <div class="card-title">Brain</div>
-      <div class="card-sub">Realistic Brain Anatomy</div>
+      <div class="card-sub">Explore Anatomy</div>
     </a>
 
-    <a class="card" href="lungs.html">
+    <!-- Lungs -->
+    <a class="card" href="#" onclick="alert('Coming soon')">
       <div class="icon">
-        <img src="https://freesvg.org/wp-content/uploads/2014/02/human-lungs-vector-image.svg" alt="Lungs Icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/3445/3445666.png" alt="Lungs">
       </div>
       <div class="card-title">Lungs</div>
-      <div class="card-sub">Pulmonary Anatomy</div>
+      <div class="card-sub">Pulmonary Structures</div>
     </a>
 
-    <a class="card" href="kidney.html">
+    <!-- Kidneys -->
+    <a class="card" href="#" onclick="alert('Coming soon')">
       <div class="icon">
-        <img src="https://freesvg.org/wp-content/uploads/2016/10/kidney.svg" alt="Kidney Icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/3445/3445673.png" alt="Kidneys">
       </div>
-      <div class="card-title">Kidney</div>
-      <div class="card-sub">Renal System</div>
+      <div class="card-title">Kidneys</div>
+      <div class="card-sub">Renal Anatomy</div>
     </a>
 
-    <a class="card" href="liver.html">
+    <!-- Liver -->
+    <a class="card" href="#" onclick="alert('Coming soon')">
       <div class="icon">
-        <img src="https://freesvg.org/wp-content/uploads/2019/01/liver-in-red.svg" alt="Liver Icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/3445/3445650.png" alt="Liver">
       </div>
       <div class="card-title">Liver</div>
-      <div class="card-sub">Hepatic Function</div>
+      <div class="card-sub">Hepatic Structures</div>
     </a>
 
-    <a class="card" href="skeleton.html">
+    <!-- Skeleton -->
+    <a class="card" href="#" onclick="alert('Coming soon')">
       <div class="icon">
-        <img src="https://www.freepik.com/free-photo-vectors/skeleton-svg" alt="Skeleton Icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/3445/3445692.png" alt="Skeleton">
       </div>
       <div class="card-title">Skeleton</div>
-      <div class="card-sub">Human Skeletal System</div>
+      <div class="card-sub">Full Bone Structure</div>
     </a>
-  </div>
 
+  </div>
 </body>
 </html>

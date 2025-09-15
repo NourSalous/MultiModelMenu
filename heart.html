@@ -20,19 +20,15 @@
       position: absolute;
       top: 16px;
       left: 16px;
-      padding: 12px 20px;
+      padding: 12px 18px;
       background: #1b7990;
       color: #fff;
       border-radius: 14px;
       font-weight: 600;
-      font-size: 0.95rem;
       text-decoration: none;
       transition: all 0.3s ease;
       z-index: 9999;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: 0 4px 12px rgba(27,121,144,0.2);
+      box-shadow: 0 4px 12px rgba(27, 121, 144, 0.3);
     }
     .back-btn:hover {
       background: #16707a;
@@ -66,42 +62,41 @@
       cursor: pointer;
     }
 
-   /* Hotspots */
-.hotspot {
-  background: rgba(103, 19, 12, 0.4); /* Transparent burgundy outer circle */
-  border-radius: 50%;
-  width: 28px;
-  height: 28px;
-  border: 2px solid #fff;
-  cursor: pointer;
-  position: relative;
-  box-shadow: 0 0 8px rgba(103, 19, 12, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s ease;
-}
-.hotspot:hover {
-  transform: scale(1.2);
-}
+    /* Hotspots */
+    .hotspot {
+      background: rgba(103, 19, 12, 0.3); /* transparent burgundy outer circle */
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      border: 2px solid #fff;
+      cursor: pointer;
+      position: relative;
+      box-shadow: 0 0 8px rgba(103, 19, 12, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+    }
+    .hotspot:hover {
+      transform: scale(1.2);
+    }
 
-/* Inner white dot */
-.hotspot::after {
-  content: "";
-  position: absolute;
-  width: 12px;   /* smaller than parent */
-  height: 12px;
-  background: #fff; /* inner dot color */
-  border-radius: 50%;
-}
-
+    /* Inner white dot */
+    .hotspot::after {
+      content: "";
+      position: absolute;
+      width: 16px;  /* slightly bigger */
+      height: 16px;
+      background: #fff; /* inner dot color */
+      border-radius: 50%;
+    }
 
     /* Labels */
     .label {
       display: none;
       position: absolute;
       top: 50%;
-      left: 36px;
+      left: 38px;
       transform: translateY(-50%);
       padding: 8px 14px;
       border-radius: 6px;
@@ -123,14 +118,13 @@
       transform: translateY(-50%);
       width: 20px;
       height: 1.5px;
-      background: rgba(103, 19, 12, 0.6); /* Transparent burgundy connector */
+      background: #fff; /* connector color white */
     }
 
     .hotspot.active .label {
       display: block;
       opacity: 1;
     }
-
   </style>
 </head>
 <body>

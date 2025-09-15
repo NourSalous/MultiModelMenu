@@ -12,6 +12,7 @@
       --white: #fff;
       --radius: 14px;
     }
+
     * { box-sizing: border-box; margin:0; padding:0; }
     body{
       font-family:'Poppins', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
@@ -22,32 +23,55 @@
       align-items: center;
       min-height: 100vh;
       padding: 36px 20px;
+      overflow-x: hidden;
     }
 
-   /* Header logo */
-header{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin-bottom: 28px;
-}
-header img{
-  height: 70px; /* keep container height */
-  width: auto;
-  object-fit: contain;
-  transform: scale(1.8); /* scale the actual logo content */
-}
+    /* Animations */
+    @keyframes drop {
+      0% { transform: translateY(-50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
 
+    @keyframes slideUpFade {
+      0% { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
 
-@media(max-width: 520px) {
-  header img { 
-    height: 70px; /* slightly larger on mobile */
-  }
-  .icon { width: 56px; height: 56px; }
-  .grid { gap: 18px; }
-}
+    .logo {
+      animation: drop 0.8s ease-out forwards;
+    }
 
+    .fade-in {
+      opacity: 0;
+      animation: slideUpFade 0.6s ease-out forwards;
+      animation-delay: 0.3s;
+    }
+
+    .slide-up {
+      opacity: 0;
+      animation: slideUpFade 0.6s ease-out forwards;
+    }
+
+    .delay-1 { animation-delay: 0.4s; }
+    .delay-2 { animation-delay: 0.5s; }
+    .delay-3 { animation-delay: 0.6s; }
+    .delay-4 { animation-delay: 0.7s; }
+    .delay-5 { animation-delay: 0.8s; }
+    .delay-6 { animation-delay: 0.9s; }
+
+    /* Header logo */
+    header{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin-bottom: 28px;
+    }
+    header img{
+      height: 90px; /* bigger logo */
+      width: auto;
+      object-fit: contain;
+    }
 
     /* Back to Welcome button */
     .back-btn {
@@ -56,6 +80,10 @@ header img{
       color: var(--turquoise);
       font-weight: 600;
       transition: 0.3s ease;
+      opacity: 0;
+      display: inline-block;
+      animation: slideUpFade 0.6s ease-out forwards;
+      animation-delay: 0.35s;
     }
     .back-btn:hover { color: #16707a; }
 
@@ -113,17 +141,17 @@ header img{
       background: linear-gradient(180deg, var(--turquoise), #16707a);
       box-shadow: 0 8px 24px rgba(27,121,144,0.12);
     }
-    .icon svg {
+    .icon img {
       width: 32px;
       height: 32px;
-      fill: #fff;
+      filter: brightness(0) invert(1);
     }
 
-    .card-title { font-weight: 700; font-size: 1.05rem; }
+    .card-title { font-weight: 700; font-size: 1.05rem; text-align: center; }
     .card-sub { font-size: 0.92rem; color:#666; font-weight:500; text-align: center; }
 
     @media(max-width: 520px) {
-      header img { height: 60px; }
+      header img { height: 70px; }
       .icon { width: 56px; height: 56px; }
       .grid { gap: 18px; }
     }
@@ -132,63 +160,64 @@ header img{
 <body>
 
   <header>
-    <img src="DarkLogo.png" alt="METATIP Logo">
+    <img src="DarkLogo.png" alt="METATIP Logo" class="logo">
   </header>
+
   <a href="index.html" class="back-btn">← Back to Welcome</a>
 
-  <div class="page-title">Organs</div>
-  <div class="subtitle">Select an organ to explore in 3D</div>
+  <div class="page-title slide-up delay-1">Organs</div>
+  <div class="subtitle slide-up delay-2">Select an organ to explore in 3D</div>
 
   <div class="grid">
     <!-- Heart -->
-    <a class="card" href="heart.html">
+    <a class="card slide-up delay-3" href="heart.html">
       <div class="icon">
-        <img src="https://cdn-icons-png.flaticon.com/512/954/954528.png" alt="Heart" style="width:32px; height:32px; filter: brightness(0) invert(1);">
+        <img src="https://cdn-icons-png.flaticon.com/512/954/954528.png" alt="Heart">
       </div>
       <div class="card-title">Heart</div>
       <div class="card-sub">Realistic 3D Heart</div>
     </a>
 
     <!-- Brain -->
-    <div class="card" onclick="alert('Coming soon')">
+    <div class="card slide-up delay-4" onclick="alert('Coming soon')">
       <div class="icon">
-        <img src="https://cdn-icons-png.flaticon.com/512/1786/1786985.png" alt="Brain" style="width:32px; height:32px; filter: brightness(0) invert(1);">
+        <img src="https://cdn-icons-png.flaticon.com/512/1786/1786985.png" alt="Brain">
       </div>
       <div class="card-title">Brain</div>
       <div class="card-sub">Explore Anatomy</div>
     </div>
 
     <!-- Lungs -->
-    <div class="card" onclick="alert('Coming soon')">
+    <div class="card slide-up delay-5" onclick="alert('Coming soon')">
       <div class="icon">
-        <img src="https://cdn-icons-png.flaticon.com/512/9774/9774039.png" alt="Lungs" style="width:32px; height:32px; filter: brightness(0) invert(1);">
+        <img src="https://cdn-icons-png.flaticon.com/512/9774/9774039.png" alt="Lungs">
       </div>
       <div class="card-title">Lungs</div>
       <div class="card-sub">Pulmonary Structures</div>
     </div>
 
     <!-- Kidneys -->
-    <div class="card" onclick="alert('Coming soon')">
+    <div class="card slide-up delay-6" onclick="alert('Coming soon')">
       <div class="icon">
-        <img src="https://cdn-icons-png.flaticon.com/512/2864/2864524.png" alt="Kidneys" style="width:32px; height:32px; filter: brightness(0) invert(1);">
+        <img src="https://cdn-icons-png.flaticon.com/512/2864/2864524.png" alt="Kidneys">
       </div>
       <div class="card-title">Kidneys</div>
       <div class="card-sub">Renal Anatomy</div>
     </div>
 
     <!-- Liver -->
-    <div class="card" onclick="alert('Coming soon')">
+    <div class="card slide-up delay-1" onclick="alert('Coming soon')">
       <div class="icon">
-        <img src="https://cdn-icons-png.flaticon.com/512/2001/2001818.png" alt="Liver" style="width:32px; height:32px; filter: brightness(0) invert(1);">
+        <img src="https://cdn-icons-png.flaticon.com/512/2001/2001818.png" alt="Liver">
       </div>
       <div class="card-title">Liver</div>
       <div class="card-sub">Hepatic Structures</div>
     </div>
 
     <!-- Skeleton -->
-    <div class="card" onclick="alert('Coming soon')">
+    <div class="card slide-up delay-2" onclick="alert('Coming soon')">
       <div class="icon">
-        <img src="https://cdn-icons-png.flaticon.com/512/7437/7437376.png" alt="Skeleton" style="width:32px; height:32px; filter: brightness(0) invert(1);">
+        <img src="https://cdn-icons-png.flaticon.com/512/7437/7437376.png" alt="Skeleton">
       </div>
       <div class="card-title">Skeleton</div>
       <div class="card-sub">Full Bone Structure</div>

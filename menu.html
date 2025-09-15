@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organ Menu | METATIP</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: #fff;
+      color: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 2rem;
+    }
+
+    /* Logo */
+    .logo {
+      max-width: 220px;
+      margin-bottom: 2rem;
+    }
+
+    /* Menu container */
+    .menu {
+      display: grid;
+      gap: 1.2rem;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    /* Menu buttons */
+    .menu-btn {
+      background: #00c8d9; /* turquoise */
+      color: #fff;
+      border: none;
+      padding: 1rem;
+      border-radius: 14px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .menu-btn:hover {
+      background: #009aa6;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 200, 217, 0.3);
+    }
+
+    /* Responsive layout */
+    @media (min-width: 768px) {
+      .menu {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Logo -->
+  <img src="DarkLogo.png" alt="METATIP Logo" class="logo">
+
+  <!-- Menu -->
+  <div class="menu">
+    <button class="menu-btn" onclick="location.href='heart.html'">Heart</button>
+    <button class="menu-btn">Model 2</button>
+    <button class="menu-btn">Model 3</button>
+    <button class="menu-btn">Model 4</button>
+    
+  </div>
+</body>
+</html>

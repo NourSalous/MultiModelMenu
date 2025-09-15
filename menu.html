@@ -58,21 +58,23 @@
     .delay-4 { animation-delay: 0.7s; }
     .delay-5 { animation-delay: 0.8s; }
     .delay-6 { animation-delay: 0.9s; }
-/* Header logo */
-header{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin-bottom: 28px;
-}
 
-header img {
-  height: 170px;   /* increased size */
-  width: auto;
-  object-fit: contain;
-}
+    /* Header logo */
+    header{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin-bottom: 28px;
+    }
 
+    header img {
+      width: 60vw;        /* responsive width */
+      max-width: 300px;   /* never bigger than 300px */
+      min-width: 120px;   /* never smaller than 120px */
+      height: auto;
+      object-fit: contain;
+    }
 
     /* Back to Welcome button */
     .back-btn {
@@ -151,8 +153,8 @@ header img {
     .card-title { font-weight: 700; font-size: 1.05rem; text-align: center; }
     .card-sub { font-size: 0.92rem; color:#666; font-weight:500; text-align: center; }
 
+    /* Tweak grid spacing on small screens */
     @media(max-width: 520px) {
-      header img { height: 70px; }
       .icon { width: 56px; height: 56px; }
       .grid { gap: 18px; }
     }

@@ -1,77 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Organ Menu | METATIP</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Organs | METATIP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: "DM Sans", sans-serif;
-      background: #fff;
-      color: #111;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      padding: 2rem;
+    :root{
+      --turquoise: #1b7990;
+      --black: #111;
+      --white: #fff;
+      --muted: #f5f6f7;
+      --radius: 14px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:var(--white);
+      color:var(--black);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:36px 20px;
     }
 
-    /* Logo */
-    .logo {
-      max-width: 220px;
-      margin-bottom: 2rem;
+    /* Header logo */
+    header{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin-bottom:28px;
+    }
+    header img{
+      height:56px;
+      width:auto;
+      object-fit:contain;
     }
 
-    /* Menu container */
-    .menu {
-      display: grid;
-      gap: 1.2rem;
-      width: 100%;
-      max-width: 400px;
+    /* Page container */
+    .container{
+      width:100%;
+      max-width:1100px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:28px;
     }
 
-    /* Menu buttons */
-    .menu-btn {
-      background: #00c8d9; /* turquoise */
-      color: #fff;
-      border: none;
-      padding: 1rem;
-      border-radius: 14px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-align: center;
+    /* Title row */
+    .title-row{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .page-title{
+      font-size:1.45rem;
+      font-weight:700;
+      letter-spacing:0.1px;
+      color:var(--black);
+    }
+    .subtitle{
+      color:#666;
+      font-size:0.95rem;
+      font-weight:500;
     }
 
-    .menu-btn:hover {
-      background: #009aa6;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0, 200, 217, 0.3);
+    /* Grid of cards */
+    .grid{
+      width:100%;
+      display:grid;
+      gap:22px;
+      /* fluid columns: try 3 columns on wide screens, 2 on medium, 1 on small */
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
 
-    /* Responsive layout */
-    @media (min-width: 768px) {
-      .menu {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    .card{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      padding:18px;
+      background:var(--white);
+      border-radius:var(--radius);
+      border:1px solid #ececec;
+      box-shadow:0 6px 20px rgba(17,17,17,0.04);
+      cursor:pointer;
+      transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+      text-decoration:none;
+      color:var(--black);
+    }
+    .card:hover{ transform:translateY(-6px); box-shadow:0 18px 40px rgba(27,121,144,0.11); border-color:#e6f4f6 }
+
+    .icon{
+      min-width:64px;
+      min-height:64px;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      font-size:1.1rem;
+      color:var(--white);
+      background: linear-gradient(180deg, var(--turquoise), #16707a);
+      box-shadow:0 8px 24px rgba(27,121,144,0.12);
+    }
+
+    .card-content{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .card-title{
+      font-size:1.05rem;
+      font-weight:700;
+    }
+    .card-sub{
+      font-size:0.92rem;
+      color:#6b6b6b;
+      font-weight:500;
+    }
+
+    /* small screens adjust spacing */
+    @media (max-width:520px){
+      header img{height:48px}
+      .container{gap:18px}
+      .icon{min-width:56px;min-height:56px}
     }
   </style>
 </head>
 <body>
-  <!-- Logo -->
-  <img src="DarkLogo.png" alt="METATIP Logo" class="logo">
+  <header>
+    <img src="DarkLogo.png" alt="METATIP logo">
+  </header>
 
-  <!-- Menu -->
-  <div class="menu">
-    <button class="menu-btn" onclick="location.href='heart.html'">Heart</button>
-    <button class="menu-btn">Model 2</button>
-    <button class="menu-btn">Model 3</button>
-    <button class="menu-btn">Model 4</button>
-    
+  <div class="container">
+    <div class="title-row" style="align-items:flex-end;">
+      <div>
+        <div class="page-title">Organs</div>
+        <div class="subtitle">Select an organ to explore in 3D</div>
+      </div>
+      <div>
+        <!-- optional quick link back to welcome -->
+        <a href="index.html" style="text-decoration:none;color:var(--turquoise);font-weight:600;">Back to Welcome</a>
+      </div>
+    </div>
+
+    <div class="grid" role="list">
+      <!-- Card example: Heart -->
+      <a class="card" href="heart.html" role="listitem" aria-label="Open Heart model">
+        <div class="icon">♥</div>
+        <div class="card-content">
+          <div class="card-title">Heart</div>
+          <div class="card-sub">Realistic 3D heart </div>
+        </div>
+      </a>
+
+      <!-- Other organ cards (replace hrefs later) -->
+      <div class="card" role="listitem" onclick="alert('Coming soon')">
+        <div class="icon">🧠</div>
+        <div class="card-content">
+          <div class="card-title">Brain</div>
+          <div class="card-sub">Explore anatomy in 3D</div>
+        </div>
+      </div>
+
+      <div class="card" role="listitem" onclick="alert('Coming soon')">
+        <div class="icon">🫁</div>
+        <div class="card-content">
+          <div class="card-title">Lungs</div>
+          <div class="card-sub">Pulmonary structures</div>
+        </div>
+      </div>
+
+      <div class="card" role="listitem" onclick="alert('Coming soon')">
+        <div class="icon">🩺</div>
+        <div class="card-content">
+          <div class="card-title">Kidneys</div>
+          <div class="card-sub">Renal anatomy</div>
+        </div>
+      </div>
+
+      <div class="card" role="listitem" onclick="alert('Coming soon')">
+        <div class="icon">🔬</div>
+        <div class="card-content">
+          <div class="card-title">Liver</div>
+          <div class="card-sub">Hepatic structures</div>
+        </div>
+      </div>
+
+      <div class="card" role="listitem" onclick="alert('Coming soon')">
+        <div class="icon">🦴</div>
+        <div class="card-content">
+          <div class="card-title">Skeleton</div>
+          <div class="card-sub">Full bone structure</div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>

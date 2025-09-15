@@ -1,150 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Organ Menu | METATIP</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Organs | METATIP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a81368914c.js" crossorigin="anonymous"></script>
   <style>
-    :root {
+    :root{
       --turquoise: #1b7990;
+      --black: #111;
+      --white: #fff;
+      --muted: #f5f6f7;
+      --radius: 14px;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: "Poppins", sans-serif;
-      background: #fff;
-      color: #111;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      padding: 1.5rem;
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:var(--white);
+      color:var(--black);
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:36px 20px;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
 
-    /* Header */
-    header {
-      width: 100%;
-      display: flex;
-      justify-content: center; /* center logo */
-      align-items: center;
-      margin-bottom: 2rem;
-      position: relative; /* for back link positioning */
-      animation: fadeDown 1s ease forwards;
+    header{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin-bottom:36px;
+    }
+    header img{
+      height:80px;
+      width:auto;
+      object-fit:contain;
     }
 
-    header img {
-      height: 90px; /* slightly bigger */
-      width: auto;
-      object-fit: contain;
+    .container{
+      width:100%;
+      max-width:1100px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:32px;
     }
 
-    .back-link {
-      position: absolute; /* position over the header */
-      left: 0;
-      text-decoration: none;
-      color: var(--turquoise);
-      font-weight: 600;
-      font-size: 1rem;
+    .title-row{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .page-title{
+      font-size:1.65rem;
+      font-weight:700;
+      letter-spacing:0.1px;
+      color:var(--black);
+    }
+    .subtitle{
+      color:#666;
+      font-size:1rem;
+      font-weight:500;
+    }
+    .back-link{
+      text-decoration:none;
+      color:var(--turquoise);
+      font-weight:600;
       transition: color 0.3s ease;
     }
-    .back-link:hover { color: #145b6e; }
+    .back-link:hover{ color:#16707a; }
 
-    /* Title section */
-    .title-row {
-      width: 100%;
-      margin-bottom: 2rem;
-      text-align: center;
-      animation: fadeDown 1.3s ease forwards;
-    }
-    .page-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-    }
-    .subtitle {
-      font-size: 1rem;
-      color: #444;
-      margin-top: 4px;
+    .grid{
+      width:100%;
+      display:grid;
+      gap:24px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
 
-    /* Menu grid */
-    .menu {
-      display: grid;
-      gap: 1.5rem;
-      width: 100%;
-      max-width: 500px;
-      animation: fadeUp 1.2s ease forwards;
+    .card{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      padding:20px;
+      background:var(--white);
+      border-radius:var(--radius);
+      border:1px solid #ececec;
+      box-shadow:0 6px 20px rgba(17,17,17,0.04);
+      cursor:pointer;
+      transition:transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      text-decoration:none;
+      color:var(--black);
+    }
+    .card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 18px 40px rgba(27,121,144,0.15), 0 0 12px rgba(27,121,144,0.4);
+      border-color:#e6f4f6;
     }
 
-    /* Pill-style buttons with neon hover glow */
-    .menu-btn {
-      background: var(--turquoise);
-      color: #fff;
-      border: none;
-      padding: 1rem;
-      border-radius: 14px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(27, 121, 144, 0.15);
+    .icon{
+      min-width:64px;
+      min-height:64px;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.8rem;
+      color:var(--white);
+      background: linear-gradient(180deg, var(--turquoise), #16707a);
+      box-shadow:0 6px 20px rgba(27,121,144,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover .icon{
+      transform:scale(1.1);
+      box-shadow:0 0 14px rgba(27,121,144,0.6),0 0 28px rgba(27,121,144,0.3);
     }
 
-    .menu-btn:hover {
-      background: #145b6e;
-      transform: translateY(-3px);
-      /* Neon glow effect */
-      box-shadow:
-        0 0 8px rgba(27, 121, 144, 0.8),
-        0 0 16px rgba(27, 121, 144, 0.6),
-        0 0 24px rgba(27, 121, 144, 0.4),
-        0 4px 10px rgba(27, 121, 144, 0.3);
+    .card-content{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .card-title{
+      font-size:1.1rem;
+      font-weight:700;
+    }
+    .card-sub{
+      font-size:0.95rem;
+      color:#6b6b6b;
+      font-weight:500;
     }
 
-    /* Responsive grid */
-    @media (min-width: 768px) {
-      .menu { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    /* Mobile tweaks */
-    @media (max-width: 520px) {
-      header img { height: 70px; }
-      .back-link { font-size: 0.9rem; left: 10px; top: 50%; transform: translateY(-50%); }
-      .page-title { font-size: 1.5rem; }
-    }
-
-    /* Animations */
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
+    @media (max-width:520px){
+      header img{height:64px}
+      .container{gap:20px}
+      .icon{min-width:56px;min-height:56px;font-size:1.5rem}
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
-    <a href="index.html" class="back-link">Back to Welcome</a>
-    <img src="DarkLogo.png" alt="METATIP Logo">
+    <img src="DarkLogo.png" alt="METATIP logo">
   </header>
 
-  <!-- Title -->
-  <div class="title-row">
-    <div class="page-title">Organs</div>
-    <div class="subtitle">Select an organ to explore in 3D</div>
-  </div>
+  <div class="container">
+    <div class="title-row" style="align-items:flex-end;">
+      <div>
+        <div class="page-title">Organs</div>
+        <div class="subtitle">Select an organ to explore in 3D</div>
+      </div>
+      <div>
+        <a href="index.html" class="back-link">Back to Welcome</a>
+      </div>
+    </div>
 
-  <!-- Menu -->
-  <div class="menu">
-    <button class="menu-btn" onclick="location.href='heart.html'">Heart</button>
-    <button class="menu-btn">Brain</button>
-    <button class="menu-btn">Lungs</button>
-    <button class="menu-btn">Kidneys</button>
-    
+    <div class="grid" role="list">
+      <a class="card" href="heart.html" role="listitem" aria-label="Open Heart model">
+        <div class="icon"><i class="fa-solid fa-heart"></i></div>
+        <div class="card-content">
+          <div class="card-title">Heart</div>
+          <div class="card-sub">Realistic 3D heart</div>
+        </div>
+      </a>
+
+      <div class="card" role="listitem" onclick="alert('Coming soon')">
+        <div class="icon"><i class="fa-solid fa-brain"></i></div>
+        <div class="card-content">
+          <div class="card-title">Brain</div>
+          <div class="card-sub">Explore anatomy in 3D</div>
+        </div>
+      </div>
+
+      <div class="card" role="listitem" onclick="alert('Coming soon')">
+        <div class="icon"><i class="fa-solid fa-lungs"></i></div>
+        <div class="card-content">
+          <div class="card-title">Lungs</div>
+          <div class="card-sub">Pulmonary structures</div>
+        </div>
+      </div>
+
+      <div class="card" role="listitem" onclick="alert('Coming soon')">
+        <div class="icon"><i class="fa-solid fa-kidneys"></i></div>
+        <div class="card-content">
+          <div class="card-title">Kidneys</div>
+          <div class="card-sub">Renal anatomy</div>
+        </div>
+      </div>
+
+      <div class="card" role="listitem" onclick="alert('Coming soon')">
+        <div class="icon"><i class="fa-solid fa-liver"></i></div>
+        <div class="card-content">
+          <div class="card-title">Liver</div>
+          <div class="card-sub">Hepatic structures</div>
+        </div>
+      </div>
+
+      <div class="card" role="listitem" onclick="alert('Coming soon')">
+        <div class="icon"><i class="fa-solid fa-bone"></i></div>
+        <div class="card-content">
+          <div class="card-title">Skeleton</div>
+          <div class="card-sub">Full bone structure</div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>

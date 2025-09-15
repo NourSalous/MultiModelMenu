@@ -1,88 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome | METATIP</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>METATIP — Welcome</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-      text-align: center;
+    :root{
+      --turquoise: #1b7990;
+      --black: #111;
+      --white: #fff;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:var(--white);
+      color:var(--black);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
 
-    /* Centered container */
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      animation: fadeIn 1s ease;
+    /* hero wrapper */
+    .hero{
+      width:100%;
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      gap:2rem;
+      padding:3rem;
+      transition:opacity .5s ease, transform .5s ease;
     }
 
-    /* Logo */
-    .container img {
-      max-width: 420px;
-      width: 80%;
-      height: auto;
-      margin-bottom: 2.5rem;
+    /* make logo huge — fills almost the screen */
+    .logo-wrap{
+      width:100%;
+      max-width:1500px; /* large container on big screens */
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      pointer-events:none;
+    }
+    .logo-wrap img{
+      display:block;
+      width:auto;
+      /* fill vertically but leave breathing room for the button:
+         On desktop let it be very large (70-75vh), on small screens smaller */
+      max-height:75vh;
+      height:clamp(220px, 70vh, 820px);
+      object-fit:contain;
     }
 
     /* Continue button */
-    .continue-btn {
-      background: #1b7990;
-      border: none;
-      color: #fff;
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
-      font-size: 1.3rem;
-      font-weight: 600;
-      cursor: pointer;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.6s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    .continue {
+      pointer-events:none;
+      opacity:0;
+      transform:translateY(8px);
+      transition:opacity .6s ease, transform .35s cubic-bezier(.2,.9,.3,1);
     }
-    .continue-btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(27, 121, 144, 0.35);
+    .continue.visible{
+      opacity:1;
+      pointer-events:auto;
+      transform:translateY(0);
     }
-    .continue-btn.visible {
-      opacity: 1;
-      pointer-events: auto;
+    .btn {
+      background:var(--turquoise);
+      color:var(--white);
+      border:0;
+      padding:1rem 2.25rem;
+      border-radius:999px;
+      font-weight:700;
+      font-size:1.15rem;
+      letter-spacing:.2px;
+      cursor:pointer;
+      box-shadow:0 12px 30px rgba(27,121,144,.18);
+      transition:transform .22s ease, box-shadow .22s ease;
     }
+    .btn:focus{outline:2px solid rgba(27,121,144,.18)}
+    .btn:hover{transform:translateY(-4px); box-shadow:0 20px 40px rgba(27,121,144,.22)}
 
-    /* Animation */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    /* fade-out effect when leaving */
+    .hero.fade-out{opacity:0; transform:translateY(-12px)}
+
+    /* small screens: keep logo smaller and button comfortable */
+    @media (max-width:520px){
+      .logo-wrap img{max-height:55vh}
+      .btn{padding:0.85rem 1.6rem; font-size:1rem}
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Logo -->
-    <img src="DarkLogo.png" alt="METATIP Logo">
+  <main class="hero" id="hero">
+    <div class="logo-wrap" aria-hidden="true">
+      <!-- put your dark/no-background logo here -->
+      <img src="assets/METATIP-DARK.png" alt="METATIP" id="brandLogo">
+    </div>
 
-    <!-- Button -->
-    <button class="continue-btn" id="continueBtn">Continue to Organs</button>
-  </div>
+    <div class="continue" id="continueWrap" aria-hidden="false">
+      <button class="btn" id="continueBtn" aria-label="Continue to Organ Menu">Continue to Organs</button>
+    </div>
+  </main>
 
   <script>
-    // Show button after 1s
-    setTimeout(() => {
-      document.getElementById("continueBtn").classList.add("visible");
-    }, 1000);
+    // Show continue button after 1 second
+    const continueWrap = document.getElementById('continueWrap');
+    const continueBtn = document.getElementById('continueBtn');
+    const hero = document.getElementById('hero');
 
-    // Redirect to menu page
-    document.getElementById("continueBtn").addEventListener("click", () => {
-      window.location.href = "menu.html";
+    setTimeout(()=> continueWrap.classList.add('visible'), 1000);
+
+    continueBtn.addEventListener('click', () => {
+      // Smooth fade then navigate
+      hero.classList.add('fade-out');
+      // give it time to animate
+      setTimeout(()=> { window.location.href = 'menu.html'; }, 420);
+    });
+
+    // optional accessibility: press Enter to continue when focused
+    continueBtn.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter') continueBtn.click();
     });
   </script>
 </body>

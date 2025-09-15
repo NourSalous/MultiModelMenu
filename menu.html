@@ -3,198 +3,124 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Organs | METATIP</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Organs Menu | METATIP </title>
   <style>
-    :root{
-      --turquoise: #1b7990;
-      --black: #111;
-      --white: #fff;
-      --radius: 14px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    * { box-sizing: border-box; margin:0; padding:0; }
-    body{
-      font-family:'Poppins', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
-      background: var(--white);
-      color: var(--black);
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      padding: 36px 20px;
+      height: 100vh;
+      flex-direction: column;
     }
-
-    /* Header logo */
-    header{
-      width:100%;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      margin-bottom: 28px;
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
     }
-    header img{
-      height: 70px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    /* Back to Welcome button */
-    .back-btn {
-      margin-top: 12px;
-      text-decoration: none;
-      color: var(--turquoise);
-      font-weight: 600;
-      transition: 0.3s ease;
-    }
-    .back-btn:hover { color: #16707a; }
-
-    /* Page title */
-    .page-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      text-align: center;
-    }
-    .subtitle {
-      font-size: 1rem;
-      color: #666;
-      text-align: center;
-      margin-bottom: 24px;
-    }
-
-    /* Grid of cards */
-    .grid {
-      width: 100%;
-      max-width: 800px;
-      display: grid;
-      gap: 24px;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    }
-
     .card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      padding: 18px;
-      background: var(--white);
-      border-radius: var(--radius);
-      border: 1px solid #ececec;
-      box-shadow: 0 6px 20px rgba(17,17,17,0.04);
+      width: 150px;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
       cursor: pointer;
-      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-      text-decoration: none;
-      color: var(--black);
+      transition: transform 0.3s;
     }
     .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 40px rgba(27,121,144,0.11);
-      border-color: #e6f4f6;
+      transform: translateY(-5px);
     }
-
     .icon {
-      width: 64px;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      background: linear-gradient(180deg, var(--turquoise), #16707a);
-      box-shadow: 0 8px 24px rgba(27,121,144,0.12);
+      background-color: #40E0D0; /* Turquoise */
+      border-radius: 50%;
+      padding: 20px;
+      margin-bottom: 10px;
+      display: inline-block;
     }
-    .icon svg {
-      width: 32px;
-      height: 32px;
-      fill: #fff;
+    .icon img {
+      width: 50px;
+      height: 50px;
     }
-
-    .card-title { font-weight: 700; font-size: 1.05rem; }
-    .card-sub { font-size: 0.92rem; color:#666; font-weight:500; text-align: center; }
-
-    @media(max-width: 520px) {
-      header img { height: 60px; }
-      .icon { width: 56px; height: 56px; }
-      .grid { gap: 18px; }
+    .card-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+    }
+    .card-sub {
+      font-size: 14px;
+      color: #777;
+    }
+    @media (max-width: 768px) {
+      .menu {
+        flex-direction: column;
+        align-items: center;
+      }
+      .card {
+        width: 80%;
+        max-width: 300px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <img src="DarkLogo.png" alt="METATIP Logo">
-  </header>
-  <a href="index.html" class="back-btn">← Back to Welcome</a>
-
-  <div class="page-title">Organs</div>
-  <div class="subtitle">Select an organ to explore in 3D</div>
-
-  <div class="grid">
-    <!-- Heart -->
+  <div class="menu">
     <a class="card" href="heart.html">
       <div class="icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-        </svg>
+        <img src="https://www.svgrepo.com/show/105024/human-brain.svg" alt="Heart Icon">
       </div>
       <div class="card-title">Heart</div>
       <div class="card-sub">Realistic 3D Heart</div>
     </a>
 
-    <!-- Brain -->
-    <div class="card" onclick="alert('Coming soon')">
+    <a class="card" href="brain.html">
       <div class="icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 2C10.34 2 9 3.34 9 5v14c0 1.66 1.34 3 3 3s3-1.34 3-3V5c0-1.66-1.34-3-3-3z"/>
-        </svg>
+        <img src="https://www.svgrepo.com/show/105024/human-brain.svg" alt="Brain Icon">
       </div>
       <div class="card-title">Brain</div>
-      <div class="card-sub">Explore Anatomy</div>
-    </div>
+      <div class="card-sub">Realistic Brain Anatomy</div>
+    </a>
 
-    <!-- Lungs -->
-    <div class="card" onclick="alert('Coming soon')">
+    <a class="card" href="lungs.html">
       <div class="icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 2C9 5 7 7 7 10v7h10v-7c0-3-2-5-5-8z"/>
-        </svg>
+        <img src="https://freesvg.org/wp-content/uploads/2014/02/human-lungs-vector-image.svg" alt="Lungs Icon">
       </div>
       <div class="card-title">Lungs</div>
-      <div class="card-sub">Pulmonary Structures</div>
-    </div>
+      <div class="card-sub">Pulmonary Anatomy</div>
+    </a>
 
-    <!-- Kidneys -->
-    <div class="card" onclick="alert('Coming soon')">
+    <a class="card" href="kidney.html">
       <div class="icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 2C8 6 6 10 6 14s4 6 6 6 6-4 6-6-2-8-6-12z"/>
-        </svg>
+        <img src="https://freesvg.org/wp-content/uploads/2016/10/kidney.svg" alt="Kidney Icon">
       </div>
-      <div class="card-title">Kidneys</div>
-      <div class="card-sub">Renal Anatomy</div>
-    </div>
+      <div class="card-title">Kidney</div>
+      <div class="card-sub">Renal System</div>
+    </a>
 
-    <!-- Liver -->
-    <div class="card" onclick="alert('Coming soon')">
+    <a class="card" href="liver.html">
       <div class="icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M4 4h16v16H4z"/>
-        </svg>
+        <img src="https://freesvg.org/wp-content/uploads/2019/01/liver-in-red.svg" alt="Liver Icon">
       </div>
       <div class="card-title">Liver</div>
-      <div class="card-sub">Hepatic Structures</div>
-    </div>
+      <div class="card-sub">Hepatic Function</div>
+    </a>
 
-    <!-- Skeleton -->
-    <div class="card" onclick="alert('Coming soon')">
+    <a class="card" href="skeleton.html">
       <div class="icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 2v20M8 6h8M8 10h8M8 14h8M8 18h8"/>
-        </svg>
+        <img src="https://www.freepik.com/free-photo-vectors/skeleton-svg" alt="Skeleton Icon">
       </div>
       <div class="card-title">Skeleton</div>
-      <div class="card-sub">Full Bone Structure</div>
-    </div>
-
+      <div class="card-sub">Human Skeletal System</div>
+    </a>
   </div>
+
 </body>
 </html>

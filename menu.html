@@ -18,7 +18,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
       min-height: 100vh;
       padding: 1.5rem;
     }
@@ -32,7 +31,7 @@
       margin-bottom: 2rem;
       flex-wrap: wrap;
       gap: 12px;
-      animation: fadeDown 1.2s ease forwards;
+      animation: fadeDown 1s ease forwards;
     }
 
     header img {
@@ -54,7 +53,8 @@
     .title-row {
       width: 100%;
       margin-bottom: 2rem;
-      animation: fadeDown 1.5s ease forwards;
+      text-align: center;
+      animation: fadeDown 1.3s ease forwards;
     }
     .page-title {
       font-size: 1.8rem;
@@ -69,12 +69,13 @@
     /* Menu grid */
     .menu {
       display: grid;
-      gap: 1.2rem;
+      gap: 1.5rem;
       width: 100%;
-      max-width: 600px;
+      max-width: 500px;
       animation: fadeUp 1.2s ease forwards;
     }
 
+    /* Pill-style buttons */
     .menu-btn {
       background: var(--turquoise);
       color: #fff;
@@ -86,14 +87,15 @@
       cursor: pointer;
       transition: all 0.3s ease;
       text-align: center;
+      box-shadow: 0 4px 10px rgba(27, 121, 144, 0.15);
     }
     .menu-btn:hover {
       background: #145b6e;
       transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(27, 121, 144, 0.3);
+      box-shadow: 0 8px 18px rgba(27, 121, 144, 0.3);
     }
 
-    /* Responsive layout */
+    /* Responsive grid */
     @media (min-width: 768px) {
       .menu { grid-template-columns: repeat(2, 1fr); }
     }
@@ -119,7 +121,7 @@
 <body>
   <!-- Header -->
   <header>
-    <img src="assets/METATIP-DARK.png" alt="METATIP Logo">
+    <img src="DarkLogo.png" alt="METATIP Logo">
     <a href="index.html" class="back-link">Back to Welcome</a>
   </header>
 
@@ -135,7 +137,7 @@
     <button class="menu-btn">Brain</button>
     <button class="menu-btn">Lungs</button>
     <button class="menu-btn">Kidneys</button>
-    <!-- More organs -->
+    <!-- Add more organs -->
   </div>
 </body>
 </html>

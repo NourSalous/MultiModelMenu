@@ -20,14 +20,19 @@
       position: absolute;
       top: 16px;
       left: 16px;
-      padding: 10px 16px;
+      padding: 12px 20px;
       background: #1b7990;
       color: #fff;
       border-radius: 14px;
       font-weight: 600;
+      font-size: 0.95rem;
       text-decoration: none;
       transition: all 0.3s ease;
       z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(27,121,144,0.2);
     }
     .back-btn:hover {
       background: #16707a;
@@ -63,17 +68,21 @@
 
     /* Hotspots */
     .hotspot {
-      background: var(--turquoise, #1b7990);
+      background: rgba(103, 19, 12, 0.4); /* Transparent burgundy */
       border-radius: 50%;
       width: 28px;
       height: 28px;
       border: 2px solid #fff;
       cursor: pointer;
       position: relative;
-      box-shadow: 0 0 8px rgba(27,121,144,0.6);
+      box-shadow: 0 0 8px rgba(103, 19, 12, 0.5);
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: transform 0.2s ease;
+    }
+    .hotspot:hover {
+      transform: scale(1.2);
     }
 
     /* Labels */
@@ -103,7 +112,7 @@
       transform: translateY(-50%);
       width: 20px;
       height: 1.5px;
-      background: var(--turquoise, #1b7990);
+      background: rgba(103, 19, 12, 0.6); /* Transparent burgundy connector */
     }
 
     .hotspot.active .label {

@@ -37,16 +37,7 @@
       100% { transform: translateY(0); opacity: 1; }
     }
 
-    .logo {
-      animation: drop 0.8s ease-out forwards;
-    }
-
-    .fade-in {
-      opacity: 0;
-      animation: slideUpFade 0.6s ease-out forwards;
-      animation-delay: 0.3s;
-    }
-
+    .logo { animation: drop 0.8s ease-out forwards; }
     .slide-up {
       opacity: 0;
       animation: slideUpFade 0.6s ease-out forwards;
@@ -68,13 +59,14 @@
       margin-bottom: 28px;
     }
 
-   header img {
-  width: 80vw;        /* takes up 80% of the viewport width */
-  max-width: 400px;   /* bigger limit on desktops */
-  min-width: 150px;   /* ensures it's not tiny on phones */
-  height: auto;
-  object-fit: contain;
-}
+    header img {
+      width: 80vw;
+      max-width: 400px;
+      min-width: 150px;
+      height: auto;
+      object-fit: contain;
+    }
+
     /* Back to Welcome button */
     .back-btn {
       margin-top: 12px;
@@ -89,18 +81,20 @@
     }
     .back-btn:hover { color: #16707a; }
 
-    /* Page title */
-    .page-title {
-      font-size: 1.8rem;
+    /* Section titles */
+    .section-title {
+      font-size: 1.6rem;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin: 36px 0 6px;
       text-align: center;
+      color: var(--turquoise);
     }
-    .subtitle {
+    .section-sub {
       font-size: 1rem;
+      font-weight: 500;
       color: #666;
+      margin-bottom: 20px;
       text-align: center;
-      margin-bottom: 24px;
     }
 
     /* Grid of cards */
@@ -168,8 +162,11 @@
   <a href="index.html" class="back-btn">← Back to Welcome</a>
 
   <div class="page-title slide-up delay-1">Organs</div>
-  <div class="subtitle slide-up delay-2">Select an organ to explore in 3D</div>
+  <div class="subtitle slide-up delay-2">Choose an anatomy model to explore in 3D & AR</div>
 
+  <!-- Section 1: Computer Generated Anatomy -->
+  <div class="section-title slide-up delay-3">Computer-Generated Models</div>
+  <div class="section-sub slide-up delay-3">High-fidelity anatomical structures created digitally</div>
   <div class="grid">
     <!-- Heart -->
     <a class="card slide-up delay-3" href="heart.html">
@@ -177,54 +174,50 @@
         <img src="https://cdn-icons-png.flaticon.com/512/954/954528.png" alt="Heart">
       </div>
       <div class="card-title">Heart</div>
-      <div class="card-sub">Realistic 3D Heart</div>
+      <div class="card-sub">Interactive 3D & AR Experience</div>
     </a>
 
-    <!-- Brain -->
-    <div class="card slide-up delay-4" onclick="alert('Coming soon')">
-      <div class="icon">
-        <img src="https://cdn-icons-png.flaticon.com/512/1786/1786985.png" alt="Brain">
-      </div>
-      <div class="card-title">Brain</div>
-      <div class="card-sub">Explore Anatomy</div>
-    </div>
-
-    <!-- Lungs -->
-    <div class="card slide-up delay-5" onclick="alert('Coming soon')">
-      <div class="icon">
-        <img src="https://cdn-icons-png.flaticon.com/512/9774/9774039.png" alt="Lungs">
-      </div>
-      <div class="card-title">Lungs</div>
-      <div class="card-sub">Pulmonary Structures</div>
-    </div>
-
-    <!-- Kidneys -->
-    <div class="card slide-up delay-6" onclick="alert('Coming soon')">
-      <div class="icon">
-        <img src="https://cdn-icons-png.flaticon.com/512/2864/2864524.png" alt="Kidneys">
-      </div>
-      <div class="card-title">Kidneys</div>
-      <div class="card-sub">Renal Anatomy</div>
-    </div>
-
-    <!-- Liver -->
-    <div class="card slide-up delay-1" onclick="alert('Coming soon')">
-      <div class="icon">
-        <img src="https://cdn-icons-png.flaticon.com/512/2001/2001818.png" alt="Liver">
-      </div>
-      <div class="card-title">Liver</div>
-      <div class="card-sub">Hepatic Structures</div>
-    </div>
-
     <!-- Skeleton -->
-    <div class="card slide-up delay-2" onclick="alert('Coming soon')">
+    <a class="card slide-up delay-4" href="skeleton.html">
       <div class="icon">
         <img src="https://cdn-icons-png.flaticon.com/512/7437/7437376.png" alt="Skeleton">
       </div>
       <div class="card-title">Skeleton</div>
-      <div class="card-sub">Full Bone Structure</div>
-    </div>
-
+      <div class="card-sub">Complete Virtual Bone Structure</div>
+    </a>
   </div>
+
+  <!-- Section 2: Real Anatomy -->
+  <div class="section-title slide-up delay-4">Real Anatomy Models</div>
+  <div class="section-sub slide-up delay-4">MRI & CT scan data transformed into true-to-life 3D</div>
+  <div class="grid">
+    <!-- Neck -->
+    <a class="card slide-up delay-5" href="neck.html">
+      <div class="icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/4533/4533534.png" alt="Neck">
+      </div>
+      <div class="card-title">Neck</div>
+      <div class="card-sub">3D Cervical Spine from MRI Scan</div>
+    </a>
+
+    <!-- SkullChest -->
+    <a class="card slide-up delay-6" href="skullchest.html">
+      <div class="icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/10299/10299270.png" alt="SkullChest">
+      </div>
+      <div class="card-title">Skull & Chest</div>
+      <div class="card-sub">3D Upper Body from MRI Scan</div>
+    </a>
+
+    <!-- Chest -->
+    <a class="card slide-up delay-1" href="chest.html">
+      <div class="icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/7220/7220470.png" alt="Chest">
+      </div>
+      <div class="card-title">Chest</div>
+      <div class="card-sub">3D Thoracic Cavity from MRI Scan</div>
+    </a>
+  </div>
+
 </body>
 </html>

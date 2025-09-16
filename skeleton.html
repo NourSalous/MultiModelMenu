@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>3D Skeleton Model | METATIP</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      background: #fff;
+      height: 100vh;
+      font-family: "DM Sans", sans-serif;
+    }
+
+    .back-btn {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      padding: 12px 18px;
+      background: #1b7990;
+      color: #fff;
+      border-radius: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      z-index: 9999;
+      box-shadow: 0 4px 12px rgba(27,121,144,0.3);
+    }
+    .back-btn:hover {
+      background: #16707a;
+      transform: translateY(-2px);
+    }
+
+    model-viewer {
+      width: 100vw;
+      height: 100vh;
+      background: #fff;
+      --poster-color: transparent;
+    }
+
+    model-viewer::part(default-ar-button) {
+      position: absolute;
+      bottom: 70px;
+      right: 16px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="menu.html" class="back-btn">← Back to Menu</a>
+
+  <model-viewer
+    src="models/skeleton.glb"
+    ios-src="models/skeleton.usdz"
+    alt="3D Skeleton Model"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    camera-controls
+    shadow-intensity="1"
+    auto-rotate>
+  </model-viewer>
+
+</body>
+</html>
